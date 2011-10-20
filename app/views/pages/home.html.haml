@@ -1,0 +1,17 @@
+- content_for :javascripts do
+  = javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=false"
+  = javascript_include_tag "optional/google_maps"
+
+- content_for :stylesheets do
+  = stylesheet_link_tag "google_maps"
+
+%header#header
+  %h1 Ruimtelijke Ordening
+
+  - if user_signed_in?
+    = link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'button awesome large red loggedin'
+    = current_user.name
+  - else
+    = link_to "Sign in with Foursquare", user_omniauth_authorize_path(:foursquare), :class => 'button awesome full green'
+
+#map
