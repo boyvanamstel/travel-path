@@ -10,4 +10,8 @@ A Foursquare App, create one at [Foursquare's OAuth page](https://foursquare.com
 
 Live example at: http://travelpath.heroku.com
 
-Run `bundle` and the database migrations: `rake db:migrate`. Finally fire up your local Rails server: `rails s`
+Run `bundle` and the database migrations: `rake db:migrate`. 
+
+Rename `config/omniauth_strategies.yml-sample` to `config/omniauth_strategies.yml` and enter your Foursquare App details.
+
+Finally fire up your local Rails server: `rails s`
