@@ -207,10 +207,10 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
-  
-  if Rails.env.production?
-    config.omniauth :foursquare, "APP_ID", "APP_SECRET"
-  else
-    config.omniauth :foursquare, "L5OMAZIQEEA5V2S4Q5Z15FO40J42QFLURR0E4VYY4TZYRIZM", "HQERVB0YNMQESHDB51LX3JFONZUBGPYXI5FLARGFG5RVCVNB"
+
+  # Parse omniauth strategies from config file
+  Rails.configuration.omniauth_strategies[:"#{Rails.env}"].each do |key,strategy|
+    config.omniauth :"#{key}", strategy['token'], strategy['secret']
   end
+ 
 end

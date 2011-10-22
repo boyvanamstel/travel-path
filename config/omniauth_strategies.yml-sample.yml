@@ -1,0 +1,18 @@
+defaults: &defaults
+  foursquare:
+    token: "YOUR DEVELOPMENT API TOKEN"
+    secret: "YOUR DEVELOPMENT API SECRET"
+
+:development:
+  <<: *defaults
+  
+:test:
+  <<: *defaults
+
+:staging:
+  <<: *defaults
+
+:production:
+  foursquare:
+    token: "YOUR PRODUCTION API TOKEN"
+    secret: "YOUR PRODUCTION API SECRET"

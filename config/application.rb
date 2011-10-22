@@ -17,6 +17,10 @@ end
 
 module Rodemo
   class Application < Rails::Application
+
+    # Devise Omniauth settings
+    config.omniauth_strategies = YAML.load_file("#{::Rails.root.to_s}/config/omniauth_strategies.yml")
+  
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
